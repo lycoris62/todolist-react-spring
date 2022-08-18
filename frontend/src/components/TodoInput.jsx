@@ -15,6 +15,7 @@ function TodoInput(props) {
     .then((res) => {
       console.log("submit log: ", res);
       onTodoChange(res);
+      setContent("");
     })
   }
 

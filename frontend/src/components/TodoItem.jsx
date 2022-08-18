@@ -1,7 +1,7 @@
 import React from "react";
 
 function TodoItem(props) {
-  const { todo: { id, content, isDone }, handleClickUpdate, setUpdatingTodo } = props;
+  const { todo: { id, content, isDone }, handleClickUpdate, setUpdatingTodo, onTodoChange } = props;
 
   const handleChangeCheckBox = (e) => {
     fetch("http://localhost:8080/todos/update/done", {
@@ -28,6 +28,7 @@ function TodoItem(props) {
     .then((res) => res.json())
     .then((res) => {
       console.log("삭제 버튼 클릭: ", res);
+      onTodoChange(res);
     });
   }
 

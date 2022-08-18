@@ -30,7 +30,7 @@ function App() {
         ? <TodoUpdate onTodoChange={setTodos} handleClickUpdate={handleClickUpdate} todo={updatingTodo} /> 
         : <TodoInput onTodoChange={setTodos} /> 
       }
-      <TodoList todos={todos} handleClickUpdate={handleClickUpdate} setUpdatingTodo={setUpdatingTodo} />
+      <TodoList todos={todos} handleClickUpdate={handleClickUpdate} setUpdatingTodo={setUpdatingTodo} onTodoChange={setTodos} />
     </div>
   );
 }

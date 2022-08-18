@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function TodoUpdate(props) {
   const { onTodoChange, handleClickUpdate, todo } = props;
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(todo.content);
   console.log("updating todo: ", todo);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ function TodoUpdate(props) {
     <form onSubmit={handleSubmit}>
       <label>
         수정: 
-        <input type={"text"} onChange={handleChange} value={todo.content} name="content" id="content" placeholder="할일을 입력하세요." />
+        <input type={"text"} onChange={handleChange} value={content} name="content" id="content" placeholder="할일을 입력하세요." />
       </label>
       <button type="submit">수정</button>
     </form>
