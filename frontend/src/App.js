@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <h1>TodoList</h1>
+      <TodoInput />
       <TodoList todos={todos} />
     </div>
   );
