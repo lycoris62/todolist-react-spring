@@ -1,7 +1,7 @@
 import React from "react";
 
 function TodoItem(props) {
-  const { id, content, isDone } = props.todo;
+  const { todo: { id, content, isDone }, handleClickUpdate, setUpdatingTodo } = props;
 
   const handleChangeCheckBox = (e) => {
     fetch("http://localhost:8080/todos/update/done", {
@@ -31,11 +31,16 @@ function TodoItem(props) {
     });
   }
 
+  const handleUpdate = () => {
+    handleClickUpdate(true);
+    setUpdatingTodo({ id, content, isDone });
+  }
+
   return (
     <div>
       <span>{content}</span>
       <input type={"checkbox"} value={isDone} onChange={handleChangeCheckBox} />
-      <button>수정</button>
+      <button onClick={handleUpdate}>수정</button>
       <button onClick={handleClickDelete}>삭제</button>
     </div>
   );

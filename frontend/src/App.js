@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import TodoUpdate from "./components/TodoUpdate";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [updatingTodo, setUpdatingTodo] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:8080/todos", {
@@ -17,11 +20,17 @@ function App() {
     });
   }, []);
 
+  const handleClickUpdate = (state) => setIsUpdate(state);
+
   return (
     <div className="App">
       <h1>TodoList</h1>
-      <TodoInput onTodoChange={setTodos} />
-      <TodoList todos={todos} />
+      { 
+        isUpdate 
+        ? <TodoUpdate onTodoChange={setTodos} handleClickUpdate={handleClickUpdate} todo={updatingTodo} /> 
+        : <TodoInput onTodoChange={setTodos} /> 
+      }
+      <TodoList todos={todos} handleClickUpdate={handleClickUpdate} setUpdatingTodo={setUpdatingTodo} />
     </div>
   );
 }
