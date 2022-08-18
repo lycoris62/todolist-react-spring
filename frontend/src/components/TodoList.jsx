@@ -9,7 +9,7 @@ function TodoList(props) {
         {
           todos?.map((todo) => (
             <li key={todo.id}>
-              <TodoItem content={todo.content} isDone={todo.isDone} />
+              <TodoItem todo={todo} />
             </li>
           ))
         }

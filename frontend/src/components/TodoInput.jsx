@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function TodoInput(props) {
+  const { onTodoChange } = props;
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
@@ -13,13 +14,11 @@ function TodoInput(props) {
     .then((res) => res.json())
     .then((res) => {
       console.log("submit log: ", res);
+      onTodoChange(res);
     })
   }
-  
-  const handleChange = (e) => {
-    setContent(e.target.value);
-    console.log(e.target.value);
-  }
+
+  const handleChange = (e) => setContent(e.target.value);
 
   return (
     <form onSubmit={handleSubmit}>

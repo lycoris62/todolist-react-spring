@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>TodoList</h1>
-      <TodoInput />
+      <TodoInput onTodoChange={setTodos} />
       <TodoList todos={todos} />
     </div>
   );
