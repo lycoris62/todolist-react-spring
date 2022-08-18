@@ -3,10 +3,7 @@ package com.lycoris62.todolist.controller;
 import com.lycoris62.todolist.domain.Todo;
 import com.lycoris62.todolist.service.TodoService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class TodoController {
 
     @PostMapping("todos/new")
     @ResponseBody
-    public List<Todo> create(TodoForm form) {
+    public List<Todo> create(@RequestBody TodoForm form) {
         Todo todo = new Todo();
         todo.setContent(form.getContent());
         todo.setIsDone(false);
