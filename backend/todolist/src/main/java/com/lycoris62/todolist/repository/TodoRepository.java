@@ -32,4 +32,9 @@ public class TodoRepository implements TodoRepositoryInterface {
         store.get(id).setContent(todo.getContent());
         return new ArrayList<>(store.values());
     }
+
+    public List<Todo> deleteById(Long id) {
+        store.remove(id);
+        return new ArrayList<>(store.values());
+    }
 }

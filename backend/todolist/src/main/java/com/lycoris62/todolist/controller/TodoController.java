@@ -33,15 +33,21 @@ public class TodoController {
         return todoService.findTodos();
     }
 
-    @PostMapping("todos/update/done")
+    @PutMapping("todos/update/done")
     @ResponseBody
     public List<Todo> updateDone(@RequestParam("id") Long id) {
         return todoService.updateTodoDone(id);
     }
 
-    @PostMapping("todos/update/content")
+    @PutMapping("todos/update/content")
     @ResponseBody
-    public List<Todo> updateTodo(@RequestParam("id") Long id, @RequestParam("content") String content) {
-        return todoService.updateTodoContent(id, content);
+    public List<Todo> updateTodo(@RequestBody TodoForm form) {
+        return todoService.updateTodoContent(form.getId(), form.getContent());
+    }
+
+    @DeleteMapping("todos/delete")
+    @ResponseBody
+    public List<Todo> deleteTodo(@RequestParam("id") Long id) {
+        return todoService.deleteTodo(id);
     }
 }

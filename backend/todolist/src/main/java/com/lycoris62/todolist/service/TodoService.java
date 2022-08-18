@@ -57,4 +57,11 @@ public class TodoService {
         todo.get().setContent(content);
         return todoRepository.updateById(todo.get().getId(), todo.get());
     }
+
+    /**
+     * 특정 id로 투두 삭제
+     */
+    public List<Todo> deleteTodo(Long id) {
+        return todoRepository.deleteById(id);
+    }
 }
