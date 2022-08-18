@@ -30,7 +30,7 @@ public class TodoController {
     @ResponseBody
     public List<Todo> create(TodoForm form) {
         Todo todo = new Todo();
-        todo.setTodo(form.getTodo());
+        todo.setContent(form.getContent());
         todo.setIsDone(false);
         todoService.add(todo);
         return todoService.findTodos();

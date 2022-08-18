@@ -29,7 +29,7 @@ public class TodoRepository implements TodoRepositoryInterface {
 
     public List<Todo> updateById(Long id, Todo todo) {
         store.get(id).setIsDone(todo.getIsDone());
-        store.get(id).setTodo(todo.getTodo());
+        store.get(id).setContent(todo.getContent());
         return new ArrayList<>(store.values());
     }
 }

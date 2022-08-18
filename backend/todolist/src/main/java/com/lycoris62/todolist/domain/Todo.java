@@ -3,7 +3,7 @@ package com.lycoris62.todolist.domain;
 public class Todo {
 
     private Long id;
-    private String todo;
+    private String content;
     private Boolean isDone;
 
     public Long getId() {
@@ -14,12 +14,12 @@ public class Todo {
         this.id = id;
     }
 
-    public String getTodo() {
-        return todo;
+    public String getContent() {
+        return content;
     }
 
-    public void setTodo(String todo) {
-        this.todo = todo;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Boolean getIsDone() {

@@ -54,7 +54,7 @@ public class TodoService {
      */
     public List<Todo> updateTodoContent(Long id, String content) {
         Optional<Todo> todo = todoRepository.findById(id);
-        todo.get().setTodo(content);
+        todo.get().setContent(content);
         return todoRepository.updateById(todo.get().getId(), todo.get());
     }
 }
