@@ -22,11 +22,11 @@ public class Todo {
         this.todo = todo;
     }
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
-        isDone = done;
+    public void setIsDone(Boolean isDone) {
+        this.isDone = isDone;
     }
 }
